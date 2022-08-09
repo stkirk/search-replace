@@ -11,9 +11,13 @@ file_in = open(formatted_file_path, "r+")
 
 # read file to string value
 text = file_in.read()
+#count occurences of search string param
+search_count = text.count(search_string)
 
 # replace search_string with replacement string
 new_text = text.replace(search_string, replacement_string)
+# count occurences of replacement
+replacement_count = new_text.count(replacement_string)
 
 # clear text from file to 0 bytes --> maybe change later to sile_in.write(new_text)
 file_in.truncate(0)
@@ -24,4 +28,6 @@ file_in.write(new_text)
 # close file
 file_in.close()
 
-print('Text successfully replaced!')
+print('---------------------------------------')
+print(f"{search_string} found {search_count} times")
+print(f"replaced by {replacement_string} {replacement_count} times")
