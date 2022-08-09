@@ -1,5 +1,5 @@
 # 3 user inputs, a text file, string to search for, string to replace the search string
-input_file = input('Drag and drop the text file to be edited: ')
+input_file = input('Drag and drop the text file to be edited or enter the absolute path: ')
 search_string = input('What string would you like to replace? ')
 replacement_string = input('What would you like to replace it with? ')
 
@@ -11,15 +11,15 @@ file_in = open(formatted_file_path, "r+")
 
 # read file to string value
 text = file_in.read()
-#count occurences of search string param
+#count occurences of search string param in original text
 search_count = text.count(search_string)
 
 # replace search_string with replacement string
 new_text = text.replace(search_string, replacement_string)
-# count occurences of replacement
+# count occurences of replacement param in edited text
 replacement_count = new_text.count(replacement_string)
 
-# clear text from file to 0 bytes --> maybe change later to sile_in.write(new_text)
+# clear text from file to 0 bytes --> maybe change later to file_in.write(new_text)
 file_in.truncate(0)
 
 # write new text into file
